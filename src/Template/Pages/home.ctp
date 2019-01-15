@@ -50,7 +50,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <div class="row">
     <div class="columns large-12">
         <div class="ctp-warning alert text-center">
-            <p>Ma page d'accueil.</p>
+            <p>Ma page d'accueil de la démo.</p>
         </div>
     </div>
 </div>
