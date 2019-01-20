@@ -51,6 +51,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="columns large-12">
         <div class="ctp-warning alert text-center">
             <p>Ma page d'accueil de la démo.</p>
+            <?php foreach ($articles as $article): ?>
+                <tr>
+                    <td>
+                        <?= $this->Html->link($article->title, ['action' => 'view', $article->slug]) ?>
+                    </td>
+                    <td>
+                        <?= $article->created->format(DATE_RFC850) ?>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
         </div>
     </div>
 </div>

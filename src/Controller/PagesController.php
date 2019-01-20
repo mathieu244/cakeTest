@@ -18,6 +18,7 @@ use Cake\Core\Configure;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use App\Model\Entity\Article;
 
 /**
  * Static content controller
@@ -40,6 +41,8 @@ class PagesController extends AppController
      */
     public function display(...$path)
     {
+
+        $articles = Articles->find();
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
@@ -55,7 +58,7 @@ class PagesController extends AppController
         if (!empty($path[1])) {
             $subpage = $path[1];
         }
-        $this->set(compact('page', 'subpage'));
+        $this->set(compact('page', 'subpage', 'articles'));
 
         try {
             $this->render(implode('/', $path));
