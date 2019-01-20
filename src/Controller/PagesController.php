@@ -18,7 +18,7 @@ use Cake\Core\Configure;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
-use App\Model\Entity\Article;
+use Cake\ORM\TableRegistry;
 
 /**
  * Static content controller
@@ -42,7 +42,7 @@ class PagesController extends AppController
     public function display(...$path)
     {
 
-        $articles = Articles->find();
+        $articles = TableRegistry::get('Articles')->find();
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
